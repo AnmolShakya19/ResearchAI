@@ -386,7 +386,6 @@ http://localhost:8000/redoc
 
 **Academic Duration:** 2023–2027
 
-**CGPA:** 7.96
 
 ---
 
