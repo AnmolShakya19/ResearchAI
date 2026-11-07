@@ -1,126 +1,178 @@
 # ResearchAI
 
-### Design and Development of an Intelligent Research Assistant using Full-Stack Technologies, Retrieval-Augmented Generation (RAG) and Large Language Models (LLMs)
+### Design and Development of an Intelligent Research Assistant using Full-Stack Technologies, Retrieval-Augmented Generation (RAG), and Large Language Models (LLMs)
 
-ResearchAI is an intelligent AI-powered research assistant designed to help researchers, students, and professionals efficiently organize, analyze, retrieve, and interact with knowledge from large collections of documents through natural language conversations.
+ResearchAI is an AI-powered research assistant designed to help students, researchers, and professionals organize research materials, analyze documents, manage research projects, and interact with information through natural language conversations.
 
-The system combines modern full-stack technologies with Retrieval-Augmented Generation (RAG) and Large Language Models (LLMs) to provide context-aware, grounded, and citation-supported responses while minimizing hallucinations commonly observed in standalone language models.
+The platform combines full-stack web technologies, Retrieval-Augmented Generation (RAG), semantic retrieval, and Large Language Models (LLMs) to generate context-aware responses grounded in uploaded research documents.
 
-This project was developed as part of the **Summer Internship 2026** at **National Institute of Technology Jamshedpur (NIT Jamshedpur)** under the guidance of **Dr. Dilip Kumar**.
+ResearchAI also provides dedicated workspaces, a research library, research-paper creation, and note management to support the complete research workflow.
 
 ---
 
 ## Features
 
-### Authentication & Security
+### 1. Authentication and Security
+- User registration and login.
+- JWT-based authentication.
+- Access and refresh token support.
+- Secure password handling.
+- Protected application routes.
+- Google OAuth integration.
+- GitHub OAuth integration/configuration support.
 
-* JWT Authentication with Access and Refresh Tokens
-* Secure Password Hashing
-* Google OAuth 2.0 Login
-* Protected API Routes
-* Session Management
-* Role-Based User Access
-* Token Refresh Mechanism
+### 2. Workspace Management
+- Create and manage multiple research workspaces.
+- Maintain separate research projects.
+- Workspace-specific document management.
+- Separate research contexts for different topics.
+- Persistent workspace and research organization.
 
-### Workspace Management
+### 3. Intelligent Document Processing
+- Upload research documents in supported formats.
+- Extract and clean document text.
+- Automatic text chunking and segmentation.
+- Generate semantic embeddings.
+- Store document chunks and associated metadata.
+- Retrieve relevant information from uploaded documents.
 
-* Create and Manage Multiple Research Workspaces
-* Workspace Isolation for Independent Research Projects
-* Workspace-Specific Context Management
-* Persistent User Sessions
+### 4. Retrieval-Augmented Generation (RAG)
+- Semantic document retrieval.
+- Vector-based similarity search.
+- Context-aware question answering.
+- Retrieval of relevant document passages.
+- Source-supported responses.
+- Multi-document research assistance.
+- Workspace-based research context.
+- Reduced dependence on unsupported LLM-generated information.
 
-### Intelligent Document Processing
+### 5. Research Library
 
-* PDF Document Upload and Processing
-* DOCX Document Upload and Processing
-* Automatic Text Extraction and Cleaning
-* Chunking and Semantic Segmentation
-* Metadata Preservation
+The Research Library provides a dedicated space to manage research materials.
 
-### Retrieval-Augmented Generation (RAG)
+**Papers**
+- Create and manage research papers.
+- Organize paper content into sections.
+- Write abstracts, introductions, literature reviews, and methodology.
+- Add results, discussions, conclusions, and references.
+- Save research papers.
+- Maintain papers within the research workspace.
 
-* Semantic Vector Search
-* Context Retrieval Pipeline
-* Similarity-Based Document Ranking
-* Citation-Aware Responses
-* Multi-Document Knowledge Retrieval
-* Hallucination Reduction through Grounded Context
+**Notes**
+- Create and save research notes.
+- Add note titles and tags.
+- Record research findings and observations.
+- View and manage saved notes.
+- Export notes in Markdown format.
 
-### AI Capabilities
+### 6. AI Research Assistance
+- Ask questions about uploaded research documents.
+- Generate research-oriented summaries.
+- Explore information using natural language.
+- Receive context-aware answers.
+- Access source references used for responses.
+- Support multi-turn research conversations.
 
-* Natural Language Question Answering
-* Research Summarization
-* Context-Aware Conversations
-* Multi-Turn Dialogue Support
-* Research Knowledge Exploration
-* Intelligent Information Retrieval
-
-### User Experience
-
-* Modern Responsive Interface
-* Workspace Dashboard
-* Research Chat Interface
-* Real-Time Interaction
-* Document Management System
-* Profile Management
+### 7. User Interface
+- Responsive React-based interface.
+- Workspace dashboard.
+- Research chat interface.
+- Document upload and management.
+- Research Library with Papers and Notes.
+- Profile and settings management.
 
 ---
 
 ## Technology Stack
 
 ### Frontend
-
-* React.js
-* Vite
-* Tailwind CSS
-* React Router
-* Axios
+- React.js
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+- React Router
+- Axios
 
 ### Backend
+- Python
+- FastAPI
+- REST APIs
+- SQLAlchemy
+- PostgreSQL
 
-* FastAPI
-* SQLAlchemy
-* PostgreSQL
-* JWT Authentication
-* Google OAuth
+### Artificial Intelligence and RAG
+- Retrieval-Augmented Generation (RAG)
+- Large Language Models (LLMs)
+- Semantic Embeddings
+- Text Chunking and Processing
+- Vector Similarity Search
+- Context Retrieval
+- Source-Grounded Response Generation
+- LLM API Integration
 
-### Artificial Intelligence
+### Authentication
+- JWT Authentication
+- Access and Refresh Tokens
+- Google OAuth 2.0
+- GitHub OAuth configuration support
 
-* Retrieval-Augmented Generation (RAG)
-* Large Language Models (LLMs)
-* Grok API
-* Semantic Embeddings
-* Vector Similarity Search
-
-### Infrastructure & DevOps
-
-* Docker
-* Git
-* GitHub
-* REST APIs
+### Tools and Infrastructure
+- Docker
+- Docker Compose
+- Git
+- GitHub
+- PostgreSQL
 
 ---
 
 ## System Architecture
 
 ```text
-User Query
-    ↓
-Frontend (React + Vite)
-    ↓
-FastAPI Backend
-    ↓
-Authentication & Workspace Validation
-    ↓
-RAG Retrieval Pipeline
-    ↓
-Relevant Context Retrieval
-    ↓
-LLM Processing (Grok API)
-    ↓
-Grounded Response Generation
-    ↓
-Response Returned to User
+                  User
+                   |
+                   v
+          React + Vite Frontend
+                   |
+                   v
+             FastAPI Backend
+                   |
+          Authentication Layer
+                   |
+                   v
+           Workspace Management
+                   |
+          +--------+---------+
+          |                  |
+          v                  v
+    Document Upload     Research Library
+          |              /          \
+          v          Papers         Notes
+   Text Extraction
+          |
+          v
+     Text Chunking
+          |
+          v
+   Semantic Embeddings
+          |
+          v
+      Vector Store
+          |
+          v
+    Relevant Retrieval
+          |
+          v
+      LLM Processing
+          |
+          v
+   Context-Grounded Answer
+          |
+          v
+   Sources and Response
+          |
+          v
+           User
 ```
 
 ---
@@ -128,50 +180,97 @@ Response Returned to User
 ## Project Structure
 
 ```text
-AI-Research-Assistant/
+ResearchAI/
 │
 ├── app/
 │   ├── core/
+│   │   ├── chunker.py
+│   │   ├── config.py
+│   │   ├── dependencies.py
+│   │   ├── document_processor.py
+│   │   ├── email.py
+│   │   ├── embedder.py
+│   │   ├── prompt_builder.py
+│   │   ├── rag_engine.py
+│   │   ├── resource_discovery.py
+│   │   ├── retriever.py
+│   │   ├── security.py
+│   │   ├── text_cleaner.py
+│   │   └── vector_store.py
+│   │
 │   ├── models/
 │   ├── routers/
 │   ├── schemas/
-│   ├── services/
-│   ├── utils/
-│   ├── prompts/
+│   ├── database.py
 │   └── main.py
 │
 ├── frontend/
-│   ├── src/
-│   │   ├── pages/
-│   │   ├── components/
-│   │   ├── services/
-│   │   ├── context/
-│   │   └── assets/
-│   │
-│   └── public/
+│   ├── public/
+│   └── src/
+│       ├── assets/
+│       ├── components/
+│       ├── context/
+│       ├── pages/
+│       ├── services/
+│       ├── App.jsx
+│       ├── index.css
+│       └── main.jsx
 │
-├── uploads/
-├── vector_store/
-├── requirements.txt
+├── tests/
+│   └── test_auth.py
+│
+├── Dockerfile
 ├── docker-compose.yml
+├── requirements.txt
+├── runtime.txt
 └── README.md
 ```
 
 ---
 
-## Installation
+## Code Repository and Dataset Availability
 
-### Clone Repository
+**Source Code**
+
+The complete application source code is available in this GitHub repository:
+
+[https://github.com/AnmolShakya19/ResearchAI](https://github.com/AnmolShakya19/ResearchAI)
+
+The repository contains the frontend, backend, application modules, Docker configuration, dependencies, and tests.
+
+**Research Documents and Datasets**
+
+- ResearchAI is designed to work with user-provided research documents.
+- Users can upload their own supported documents for processing and analysis.
+- Documents are processed into text chunks and semantic representations for retrieval.
+- Uploaded documents and generated vector indexes are maintained separately from the public source-code repository.
+- No bundled research dataset is currently distributed with this repository.
+
+**Research Paper Creation**
+
+Users can create and save their own research papers through the Research Library. Paper content is organized into individual academic sections.
+
+**Research Notes**
+
+Users can maintain research notes, organize findings using tags, and export notes as Markdown files.
+
+---
+
+## Installation and Setup
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ImRAryan/AI-Research-Assistant.git
-cd AI-Research-Assistant
+git clone https://github.com/AnmolShakya19/ResearchAI.git
+cd ResearchAI
 ```
 
-### Backend Setup
+### 2. Backend Setup
+
+Create and activate a Python virtual environment:
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
@@ -181,21 +280,23 @@ For Windows:
 venv\Scripts\activate
 ```
 
-Install dependencies:
+Install backend dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Start the backend server:
+Configure the required environment variables and PostgreSQL connection using your local environment configuration.
+
+Start the backend:
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
----
+### 3. Frontend Setup
 
-### Frontend Setup
+Open another terminal:
 
 ```bash
 cd frontend
@@ -203,154 +304,105 @@ npm install
 npm run dev
 ```
 
+### 4. Docker Setup
+
+Alternatively, run the application using Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+The application services and ports depend on the Docker Compose configuration.
+
 ---
 
-## Environment Variables
+## Environment Configuration
 
-Create a `.env` file in the backend directory.
+Create a local `.env` file and configure the credentials required by the application.
 
-```env
-DATABASE_URL=
-SECRET_KEY=
-ALGORITHM=
-ACCESS_TOKEN_EXPIRE_MINUTES=
+Typical configuration categories include:
 
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
+- PostgreSQL database connection.
+- JWT authentication settings.
+- OAuth client credentials.
+- LLM API credentials.
+- Application configuration.
 
-GROK_API_KEY=
-```
+**Security:** Never upload your `.env` file, API keys, database passwords, or authentication secrets to GitHub.
 
 ---
 
 ## API Documentation
 
-Interactive API documentation is available through Swagger UI.
+FastAPI provides interactive API documentation through Swagger UI.
 
-Backend API:
-
-```text
-https://imraryan-research-assistant.hf.space/docs
-```
-
-Redoc Documentation:
+After starting the backend, open:
 
 ```text
-https://imraryan-research-assistant.hf.space/redoc
+http://localhost:8000/docs
 ```
 
----
-
-## Deployment
-
-### Frontend
+Alternative documentation:
 
 ```text
-https://ai-research-assistant-three-wine.vercel.app/
+http://localhost:8000/redoc
 ```
-
-### Backend
-
-```text
-https://imraryan-research-assistant.hf.space
-```
-
-### API Documentation
-
-```text
-https://imraryan-research-assistant.hf.space/docs
-```
-
----
-
-## Screenshots
-
-### Authentication System
-
-
-> <img width="1920" height="1200" alt="Screenshot 2026-06-30 181654" src="https://github.com/user-attachments/assets/261cbf1a-641a-467b-b055-0abe1e246083" />
-
-> <img width="1920" height="1200" alt="Screenshot 2026-06-30 181708" src="https://github.com/user-attachments/assets/003330e3-2208-4d23-9240-885f2bd6fa2a" />
-
-
-
-### Workspace Management
-
-> <img width="1920" height="1200" alt="Homepage" src="https://github.com/user-attachments/assets/3f6a96a7-6c1e-422a-8a8d-7ba2d9bdf3bc" />
-
-
-### Research Chat Interface
-
-> <img width="1920" height="1200" alt="Chat1" src="https://github.com/user-attachments/assets/547dd280-09ba-4fbd-abce-73c956d9dbe7" />
-
-
-### Document Upload and Processing
-
-> <img width="1920" height="1200" alt="Upload" src="https://github.com/user-attachments/assets/e98beb5a-6c40-43a3-aaf6-7c81b432fa62" />
-
-
-### API Documentation
-
-> <img width="1920" height="1200" alt="Swagger1" src="https://github.com/user-attachments/assets/6b0de324-4317-4cd3-8ee1-b9bca188a4d9" />
-
 
 ---
 
 ## Research Objectives
 
-* Develop an intelligent document-centric research assistant.
-* Integrate Retrieval-Augmented Generation for grounded responses.
-* Reduce hallucinations in LLM-generated outputs.
-* Enable efficient knowledge discovery from large document collections.
-* Provide scalable and modular research infrastructure.
+- Develop an intelligent research assistant using full-stack web technologies.
+- Integrate RAG for document-grounded question answering.
+- Enable semantic retrieval from uploaded research documents.
+- Support independent research workspaces.
+- Provide research-paper and note management.
+- Improve research organization and knowledge discovery.
+- Provide source-supported responses through document retrieval.
 
 ---
 
 ## Future Enhancements
 
-* Hybrid Retrieval Mechanisms
-* Multi-Modal Document Understanding
-* Support for Additional Document Formats
-* Collaborative Research Workspaces
-* Advanced Citation Generation
-* Knowledge Graph Integration
-* Real-Time Collaboration Features
+- Hybrid search and retrieval.
+- Advanced citation generation.
+- Multi-modal document understanding.
+- Additional document-format support.
+- Collaborative research workspaces.
+- Knowledge graph integration.
+- Advanced research-paper export options.
 
 ---
 
 ## Academic Information
 
-**Project Title:**
+**Author:** Anmol Shakya
 
-*Design and Development of an Intelligent Research Assistant using Full-Stack Technologies, Retrieval-Augmented Generation (RAG) and Large Language Models (LLMs).*
+**Institution:** Noida Institute of Engineering & Technology (NIET), Greater Noida, Uttar Pradesh
 
-**Institution:**
+**Degree:** Bachelor of Technology (B.Tech)
 
-National Institute of Technology Jamshedpur (NIT Jamshedpur)
+**Branch:** Computer Science and Engineering
 
-**Internship:**
+**Academic Duration:** 2023–2027
 
-Summer Internship 2026
-
-**Academic Guide:**
-
-Dr. Dilip Kumar
+**CGPA:** 7.96
 
 ---
 
 ## Author
 
-**GitHub:**
-https://github.com/ImRAryan
+**Anmol Shakya**
+
+- GitHub: [AnmolShakya19](https://github.com/AnmolShakya19)
+- Email: anmolshakya29381@gmail.com
 
 ---
 
 ## Acknowledgements
 
-I express sincere gratitude to **Dr. Dilip Kumar** for his guidance, mentorship, and support throughout the development of this project during the Summer Internship 2026 at **National Institute of Technology Jamshedpur (NIT Jamshedpur)**.
+This project represents the application of full-stack development, database management, artificial intelligence, and modern research-assistance technologies as part of my academic learning in Computer Science and Engineering.
 
 ---
 
-## Star the Repository
-
-If you find this project useful, consider giving the repository a star.
+**If you find this project useful, consider giving the repository a star!**
