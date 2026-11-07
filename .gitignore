@@ -1,0 +1,30 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+build/
+
+# Uploaded documents and generated indexes
+uploads/
+vector_indexes/
+
+# Git and editor files
+.git/
+.vscode/
+.DS_Store
+
+# Backups and logs
+*.backup
+*.log
+.bevel/
